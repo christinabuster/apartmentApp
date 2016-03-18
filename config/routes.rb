@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path_names: {login: "login", logout: "logout"},
+  :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   resources :apartments
   root 'apartments#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
